@@ -1,3 +1,6 @@
+
+
+
 const express = require('express')
 const ejs = require('ejs')
 const bodyParser = require('body-parser')
@@ -11,6 +14,8 @@ server.use(bodyParser.urlencoded({ extended: false }))
 server.use(bodyParser.json())
 
 const PORT = 3005
+
+server.use(express.static(__dirname + '/public'))
 // Sorry using port 3005 not 3000 because I have react native running on 3000 and I don't want to kill that port because it has been troublesome getting android to run smoothly.
 
 let weight = 0
@@ -26,11 +31,11 @@ server.get("/calculator", (req, res) => {
 })
 
 server.post("/calculator", (req, res) => {
-  let bmi = req.body
-  console.log(req.body, 'req')
-  console.log(bmi, 'bmi')
-
-  res.json(req.body)
+  weight = req.body.weight.toString()
+  height = req.body.height.toString()
+  let bmi = Math.round((weight / height) / height * 703)
+  console.log(bmi)
+  res.render("bmi", {bmi: bmi})
 })
 
 

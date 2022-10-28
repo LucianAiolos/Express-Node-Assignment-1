@@ -20,20 +20,27 @@ body {
 }
 
 h1 {
-  margin-bottom: 2rem;
+  margin-bottom: 2.2rem;
   color: rgba(245, 245, 245, 0.856);
 }
 
 form {
-  width: 50%;
+  width: 300px;
   display: flex;
   flex-direction: column;
   
+  height: 300px;
 }
 
-
-input {
+label {
   font-size: 20px;
+  color: whitesmoke;
+  padding: 10px 5px;
+}
+input {
+  font-size: 22px;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 
@@ -46,4 +53,10 @@ button {
   background-color: teal;
   border: none;
   border-radius: 30px;
+  margin-top: 30px;
+}
+
+.bmi {
+  color: white;
+  font-size: 30px;
 }
